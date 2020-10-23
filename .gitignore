@@ -6,12 +6,22 @@
 /[Pp]ackages/
 /.vs/
 /.vscode/
+/.idea/
 /UnityPackageManager/
 
 ProjectSettings/*
 !ProjectSettings/EditorSettings.asset
 
-Assets/*
+Assets/Development/
+Assets/Development.meta
+Assets/Vehicle Physics Pro/
+Assets/Vehicle Physics Pro.meta
+Assets/SteamVR/
+Assets/SteamVR.meta
+Assets/SteamVR_Input/
+Assets/SteamVR_Input.meta
+Assets/SteamVR_Resources/
+Assets/SteamVR_Resources.meta
 !Assets/HTC.UnityPlugin/
 !Assets/HTC.UnityPlugin.meta
 Assets/HTC.UnityPlugin/ViveInputUtility/changelog.txt
