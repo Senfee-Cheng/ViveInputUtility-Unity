@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using HTC.UnityPlugin.Utility;
+﻿using HTC.UnityPlugin.Utility;
 using HTC.UnityPlugin.Vive;
 using UnityEngine;
 
 public class ViveToolsTest : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         ViveInput.AddListenerEx(HandRole.RightHand, ControllerButton.Trigger, ButtonEventType.Up, OnTrigger);
+    }
+    
+    private void OnDestroy()
+    {
+        ViveInput.RemoveListenerEx(HandRole.RightHand, ControllerButton.Trigger, ButtonEventType.Up, OnTrigger);
     }
 
     private void OnTrigger()
@@ -42,8 +43,5 @@ public class ViveToolsTest : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        ViveInput.RemoveListenerEx(HandRole.RightHand, ControllerButton.Trigger, ButtonEventType.Up, OnTrigger);
-    }
+  
 }

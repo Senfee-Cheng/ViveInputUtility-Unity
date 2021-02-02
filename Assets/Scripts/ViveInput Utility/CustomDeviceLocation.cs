@@ -1,4 +1,5 @@
-﻿using HTC.UnityPlugin.Utility;
+﻿using System;
+using HTC.UnityPlugin.Utility;
 using HTC.UnityPlugin.VRModuleManagement;
 using UnityEngine;
 
@@ -88,7 +89,6 @@ public class CustomDeviceLocation : MonoBehaviour
     public void UpdateHeight()
     {
         var pos = transform.localPosition;
-        Debug.Log("检测到激活的设备：" + VRModule.activeModule);
         switch (VRModule.activeModule)
         {
 #if UNITY_2019_3_OR_NEWER

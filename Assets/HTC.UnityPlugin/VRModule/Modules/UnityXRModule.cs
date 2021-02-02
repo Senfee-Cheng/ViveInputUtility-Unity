@@ -55,9 +55,6 @@ namespace HTC.UnityPlugin.VRModuleManagement
         [RenderModelHook.CreatorPriorityAttirbute(0)]
         private class RenderModelCreator : RenderModelHook.DefaultRenderModelCreator
         {
-#if VIU_WAVEXR_ESSENCE_RENDERMODEL
-            private uint m_index = INVALID_DEVICE_INDEX;
-#endif
             public override bool shouldActive { get { return s_moduleInstance == null ? false : s_moduleInstance.isActivated; } }
 
             public override void UpdateRenderModel()
@@ -940,9 +937,9 @@ namespace HTC.UnityPlugin.VRModuleManagement
             return default;
         }
 
-        private UnityEngine.XR.Hand GetDeviceFeatureValueOrDefault(InputDevice device, InputFeatureUsage<UnityEngine.XR.Hand> feature)
+        private Hand GetDeviceFeatureValueOrDefault(InputDevice device, InputFeatureUsage<Hand> feature)
         {
-            UnityEngine.XR.Hand value;
+            Hand value;
             if (device.TryGetFeatureValue(feature, out value))
             {
                 return value;
@@ -1029,5 +1026,5 @@ namespace HTC.UnityPlugin.VRModuleManagement
             return str;
         }
 #endif
-        }
     }
+}

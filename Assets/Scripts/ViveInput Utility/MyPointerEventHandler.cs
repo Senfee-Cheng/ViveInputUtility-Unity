@@ -1,22 +1,16 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using HTC.UnityPlugin.Vive;
-using HTC.UnityPlugin.VRModuleManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class MyPointerEventHandler : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPointerClickHandler
 {
-    void Start()
+    private void Start()
     {
-      
+         
     }
 
-    void Update()
-    {
-        
-    }
-    
     HashSet<PointerEventData> hovers = new HashSet<PointerEventData>();
 
     public void OnPointerEnter(PointerEventData eventData)

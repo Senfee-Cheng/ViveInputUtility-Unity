@@ -16,35 +16,24 @@ namespace HTC.UnityPlugin.Vive
         private static string s_defaultAssetPath;
         private static string s_partialActionDirPath;
 
-        [SerializeField] private bool m_isInstallingWaveXRPlugin;
-        [SerializeField] private bool m_isInstallingOpenVRXRPlugin;
-        [SerializeField] private List<string> m_ignoreKeys;
-
-        public bool isInstallingWaveXRPlugin
+        public bool HTCRegistryLicenseAccepted
         {
             get
             {
-                return m_isInstallingWaveXRPlugin;
+                return m_HTCRegistryLicenseAccepted;
             }
             set
             {
-                m_isInstallingWaveXRPlugin = value;
-                Save();
+                m_HTCRegistryLicenseAccepted = value;
+                EditorUtility.SetDirty(this);
             }
         }
 
-        public bool isInstallingOpenVRXRPlugin
-        {
-            get
-            {
-                return m_isInstallingOpenVRXRPlugin;
-            }
-            set
-            {
-                m_isInstallingOpenVRXRPlugin = value;
-                Save();
-            }
-        }
+        [SerializeField] 
+        private bool m_HTCRegistryLicenseAccepted;
+
+        [SerializeField]
+        private List<string> m_ignoreKeys;
 
         private HashSet<string> m_ignoreKeySet;
         private bool m_isDirty;
@@ -90,16 +79,9 @@ namespace HTC.UnityPlugin.Vive
             }
         }
 
-        public static string partialActionFileName
-        {
-            get { return "actions.json"; }
-        }
+        public static string partialActionFileName { get { return "actions.json"; } }
 
-        public static bool hasChanged
-        {
-            get { return Instance.m_isDirty; }
-            set { Instance.m_isDirty = value; }
-        }
+        public static bool hasChanged { get { return Instance.m_isDirty; } }
 
         public void OnBeforeSerialize()
         {
